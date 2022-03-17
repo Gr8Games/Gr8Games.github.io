@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <head>
+  <title> Win </title>
+   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js">
+   </script>
+    <script>
+     function start(){
+      sjs.open();
+      var image = new sjs.Image("Images/giphy.gif");
+      image.setHeight(500);
+      var youwin_txt = new sjs.Text("YOU WIN!", 40, "red");
+      youwin_txt.centerH();
+      var start_btn = new sjs.Button("Play Again?", function(){
+      	window.location = "index.html";
+      });
+      start_btn.center();
+
+     };
+    </script>
+   </head>
+  <body onload="start()">
+ <h1> You Win </h1>
+  <div id="target" style="margin:auto;background:grey;"></div>
+ </body>
+</html>
