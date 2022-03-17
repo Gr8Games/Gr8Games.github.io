@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Menu </title>
+   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+   function start(){
+    sjs.open("target", 1000, 600);
 
+    var background = new sjs.Image("Images/becareful.gif");
+    background.setWidth(1000);
+
+    var game_txt = new sjs.Text("Race!", 70, "black");
+    game_txt.centerH();
+
+    var instructions_txt = new sjs.Text("Your rich friend is letting you take his bright green Aston Martin for a spin.  You're at the racetrack, and you have to get to the finish line.  Watch out though - some people use it as a truck crossing.  Use the arrow keys to move and don't hit any trucks!  You must pass the finish line safe and sound.  If you collect a hotwheels logo, then you will be invincible for 3 seconds.  Try to drive better than this - the car is worth about $1,400,000!", 20, "black");
+    instructions_txt.offset(0, 100);
+    instructions_txt.offset(10, 0);
+
+    var level2_btn = new sjs.Button("Level 2", function(){
+    	window.location = "race2.html";
+    });
+    level2_btn.center().offset(0, -40);
+
+    var level1_btn = new sjs.Button("Level 1", function(){
+        window.location = "race.html";
+    });
+    level1_btn.center().offset(0, -80);
+
+    var level3_btn = new sjs.Button("Level 3", function(){
+        window.location = "race3.html";
+    });
+    level3_btn.center();
+
+    var level4_btn = new sjs.Button("Level 4", function(){
+        window.location = "race4.html";
+    });
+    level4_btn.center().offset(0, 40);
+
+    var level5_btn = new sjs.Button("Level 5", function(){
+        window.location = "race5.html";
+    });
+    level5_btn.center().offset(0, 80);
+
+    var maker_txt = new sjs.Text("Created By: Micah Ruth", 30, "black");
+    maker_txt.centerH().bottom().offset(0, -30);
+   };
+  </script>
+ </head>
+<body onload="start()">
+ <h1> Race </h1>
+  <div id="target" style="margin:auto;background:white;"></div>
+ </body>
+</html>

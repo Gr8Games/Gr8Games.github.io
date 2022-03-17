@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Win </title>
+   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+   function start(){
+    sjs.open("target", 800, 700);
+
+    var background = new sjs.Image("Images/fireworks.gif");
+    background.setWidth(800);
+
+    var win_txt = new sjs.Text("YOU WIN!", 160, "red");
+    win_txt.centerH();
+
+    var menu_btn = new sjs.Button("Back to Menu", function(){
+    	window.location = "index.html";
+    });
+    menu_btn.center();
+
+   }
+  </script>
+ </head>
+<body onload="start()">
+ <h1> You Win </h1>
+  <div id="target" style="margin:auto;background:white;"></div>
+ </body>
+</html>

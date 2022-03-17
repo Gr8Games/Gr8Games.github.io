@@ -1,0 +1,156 @@
+<html>
+	<head>
+		<title> Custom Game </title>
+			<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script>
+			function start(){
+				sjs.open("target",500, 700);
+
+				//Background
+				var background = new sjs.Image("Images/racetrack.jpg");
+				background.setSize(500, 12000);
+				background.bottom();
+
+        //Background Music
+        var audio = new Audio('Music/infinite_strings.mp3');
+        var toggle = true;
+        var musicOn = false;
+
+        sjs.keyDown(SPACE_KEY, function(){
+          if(toggle == true){
+            if(musicOn == false){
+              audio.play();
+              musicOn = true;
+            } else {
+              audio.pause();
+              musicOn = false;
+            };
+            toggle = false;
+            setTimeout(function(){
+            toggle = true;
+            }, 1000);
+          };
+        });
+
+        var music_txt = new sjs.Text("Press the Space Bar to Turn", 30, "red");
+        music_txt.centerH().centerV();
+        setTimeout(function(){
+          music_txt.destroy();
+        }, 3000);
+        sjs.scrollable(music_txt, background);
+        music_txt.centerH().offset(0, 11322);
+
+        var music_txt2 = new sjs.Text("Music On and Off", 30, "red");
+        music_txt2.centerH().centerV();
+        setTimeout(function(){
+          music_txt2.destroy();
+        }, 3000);
+        sjs.scrollable(music_txt2, background);
+        music_txt2.centerH().offset(0, 11362);
+
+				//Player
+      			var player = new sjs.Image("Images/astonmartin.png");
+                        player.type = "player";
+                        player.center();
+                        player.setWidth(70);
+                        player.friction = 0.1
+                        player.accel = 0.2
+                        player.centerH().offset(0, 110);
+                        sjs.scrollable(player, background);
+                        player.offset(0, 11400)
+
+                        //Enemies
+                          setInterval(function(){
+                            var speed = Math.floor(1 + Math.random() * 10);
+                            if(Math.random() > 0.5){
+                              var car = new sjs.Image("Images/pngeggright.png");
+                              car.type = "car";
+                              car.setHeight(100);
+                              car.noBounds = true;
+                              car.friction = 0;
+                              car.pushRight(speed);
+                              car.moveTo(-car.getWidth(), Math.random() * (car.getClamp().y));
+                            } else {
+                              var car = new sjs.Image("Images/pngeggleft.png");
+                              car.type = "car";
+                              car.setHeight(100);
+                              car.noBounds = true;
+                              car.friction = 0;
+                              car.pushLeft(speed);
+                              car.moveTo(sjs.getWidth(), Math.random() * (car.getClamp().y));
+                            };
+                          }, 400);
+
+            var white = new sjs.Image("Images/white.png");
+            white.setSize(440, 2);
+            white.top().centerH().offset(-3, 275);
+            white.type = "white"
+
+            setInterval(function(){
+              var x = Math.floor(Math.random() * 500);
+              var y = Math.floor(Math.random() * 12000);
+              var hotwheels = new sjs.Image("Images/giphy.gif");
+              hotwheels.type = "hotwheels";
+              hotwheels.setWidth(150);
+              hotwheels.moveTo(x, y);
+              setTimeout(function(){
+                hotwheels.destroy();
+              }, 10000);
+            }, 10000);
+
+      			sjs.keyDown(UP_KEY, function(){
+      				player.pushUp(3);
+                        });
+      			sjs.keyDown(DOWN_KEY, function(){
+      				player.pushDown(3);
+      			});
+
+                        sjs.keyDown(LEFT_KEY, function(){
+                              player.pushLeft(1);
+                        });
+
+                        sjs.keyDown(RIGHT_KEY, function(){
+                              player.pushRight(1);
+                        });
+
+      			//onHits
+      			sjs.onHit("player", "bottom_screen", function(x, y){
+      				sjs.stoppedBy(x, y);
+      			});
+
+            var invincible = false;
+
+            sjs.onHit("player", "hotwheels", function(x, y){
+              y.destroy();
+              invincible = true;
+              setTimeout(function(){
+                invincible = false;
+              }, 3000);
+            });
+
+            sjs.onHit("player", "car", function(x, y){
+              if(invincible == false){
+                x.setImage("Images/explosion.png");
+                x.setSize(330, 150);
+                setTimeout(function(){
+                 window.location = "gameover.html";
+               },1000);
+              } else {};
+            });
+
+            sjs.onHit("player", "top_screen", function(){
+              window.location = "win.html";
+            });
+
+            sjs.onHit("player", "white", function(){
+              window.location = "win.html";
+            });
+
+			} //end start
+		</script>
+	</head>
+<body onload="start()">
+	<h1> Custom Game </h1>
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>
