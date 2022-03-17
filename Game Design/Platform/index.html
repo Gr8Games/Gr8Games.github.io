@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Menu </title>
+   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+   function start(){
+    sjs.open();
 
+    var game_txt = new sjs.Text("Capture the Flag!", 30, "blue");
+    game_txt.centerH();
+
+    var design_btn = new sjs.Button("Design Level", function(){
+    	window.location = "platform.html";
+    });
+    design_btn.center();
+
+    var level1_btn = new sjs.Button("Level 1", function(){
+        window.location = "level1.html";
+    });
+    level1_btn.center().offset(0, 30);
+
+    var maker_txt = new sjs.Text("Created By: Micah Ruth", 30, "blue");
+    maker_txt.centerH().bottom();
+   };
+  </script>
+ </head>
+<body onload="start()">
+ <h1> Platform Game </h1>
+  <div id="target" style="margin:auto;background:white;"></div>
+ </body>
+</html>
