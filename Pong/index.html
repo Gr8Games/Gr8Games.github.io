@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <html>
+<head>
+ <title> Menu </title>
+ <script src="https://simplycodingcourses.com/files/simplyjs/simply.js">
+ </script>
+  <script>
+   function start(){
+    sjs.open();
+    var menu_txt = new sjs.Text("MENU", 35, "black");
+    menu_txt.centerH();
+
+    var howto_txt = new sjs.Text("How to Play:", 25, "black");
+    howto_txt.centerH().offset(0, 45);
+    
+    var instructions_txt = new sjs.Text("Use the Up and Down Arrow Keys to Control the Blue Paddles, and the Left and Right Arrow Keys to Control the Red Paddles.  Don't Let the Tire Get By You!  If You Get to 40 Points, Another Tire Will Follow the First Tire!", 20, "black");
+    instructions_txt.centerH().offset(0, 82);
+    
+    var start_btn = new sjs.Button("Start", function(){
+     window.location = "pong.html"
+    });
+
+    start_btn.center();
+
+    var creator_txt = new sjs.Text("Created By: Micah Ruth", 20, "black");
+    creator_txt.bottom().centerH();
+
+   } //end start
+  </script>
+ </head>
+<body onload="start()">
+ <h1> Menu </h1>
+
+ <div id="target" style="margin:auto;background:lightgrey;">
+ </div>
+</body>
+ </html>
