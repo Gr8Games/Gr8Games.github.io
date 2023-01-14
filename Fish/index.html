@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Menu </title>
+   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js">
+   </script>
+    <script>
+     function start(){
+     sjs.open();
+
+     var menu_txt = new sjs.Text("Menu",40, "red");
+     menu_txt.centerH();
+
+     var instructions_txt = new sjs.Text("Use the Arrow Keys to Control the White and Red Galactica Jet.  Only Ram Into Enemy Jets That Are Smaller Than You!  Collect Falling Corvettes For Bonus Powerups!", 30, "red");
+     instructions_txt.centerH().offset(0, 65);
+
+     var start_btn = new sjs.Button("Start", function(){
+     	window.location = "fish.html";
+     });
+     start_btn.center().offset(0, 100);
+     var creater_txt = new sjs.Txt("Created by: Micah Ruth", 30, "red");
+     };
+    </script>
+   </head>
+  <body onload="start()">
+ <h1> Fish </h1>
+  <div id="target" style="margin:auto;background:white;"></div>
+ </body>
+</html>

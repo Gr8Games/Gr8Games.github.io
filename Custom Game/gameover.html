@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Game Over </title>
+ <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+  <script>
+   function start(){
+    sjs.open("target", 1000, 700);
+
+    var background = new sjs.Image("Images/pileup.gif");
+    background.setWidth(1000);
+    background.offset(0, 70)
+
+    var youlose_txt = new sjs.Text("You Crashed!", 50, "black");
+    youlose_txt.centerH();
+
+    var betterluck_txt = new sjs.Text("Uh Oh... Look What You Caused", 30, "black");
+    betterluck_txt.centerH().offset(0, 70);
+    
+    var tryagain_btn = new sjs.Button("Try Again?", function(){
+    	window.location = "index.html";
+    });
+    tryagain_btn.center().offset(0, 200);
+
+   };
+  </script>
+ </head>
+<body onload="start()">
+ <h1> Game Over </h1>
+  <div id="target" style="margin:auto;background:white;"></div>
+ </body>
+</html>
