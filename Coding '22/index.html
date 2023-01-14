@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="main.css" />
+    <title>The Corvette - An American Icon</title>
+    <script>
+     function banner(){
+       var text = confirm("R U Sure?");
+       return text;
+     } // end function banner
+
+     function answer(){
+       var radio = document.getElementsByName("trivia");
+       var selection = false;
+       var message = " ";
+
+       for( var i = 0; i < radio.length; i++){
+         if(radio[i].value == "yes" && radio[i].checked == true){
+           selection = true;
+         }
+       }
+
+       if(selection == true){
+         message = message + "<b><p style='color:green'>Correct! :)</p></b>";
+       }else{
+         message = message + "<b><p style='color:red'>Incorrect. :(</p></b>";
+       }
+
+       document.getElementById("response").innerHTML = message;
+     } // end function answer
+    </script>
+    <style>
+    </style>
+  </head>
+
+  <body id="body" >
+   <a href="positions.html" onclick="return banner()"><header id="banner"><strong>A Website :)</strong></header></a>
+
+   <nav>
+     <ul id="navmenu">
+       <li class="navitem"><a href="index.html">Home</a></li>
+       <li class="navitem"><a href="about.html">About</a></li>
+       <li class="navitem"><a href="completecorvettedictionary.html">Complete Corvette Dictionary</a></li>
+     </ul>
+   </nav>
+
+   <h1>The Corvette - An <span class="red">Am</span><span class="white">eri</span><span class="blue">can</span> Icon</h1>
+   <br /><audio width="400" height="220" controls autoplay>
+<source src="acceleration-1-6916.mp3" type="audio/mpeg">
+Your browser does not support HTML 5 audio
+</audio>
+
+   <div id="centeredlogo"><img width="30%" src="CorvetteLogoNoBackground.png" /></div>
+
+   <div class="rightside">
+   <div class="standard">
+   <p class="normal">This website was supposed to be a resource for information about Chevrolet Corvettes.<br /><br />It was going to be designed to provide specs and descriptions in a <strong>clear</strong>, <i>exciting</i>, and <u>easily accessible</u> way.<br /><br />Ideally, you could find information here on:</p>
+     <ul>
+       <li class="cool">Models</li>
+       <li class="cool">Prices</li>
+       <li class="cool">Top Speeds </li>
+       <br /><img width="20%" src=" CorvetteDash.jpg" />
+     </ul>
+   <p class="normal">However, I haven't added much information yet so it is currently not that useful.  :)</p>
+   </div>
+   <br />
+   </div>
+
+   <div class="leftside"><div class="trivia">
+     <h2>Corvette Trivia Question:</h2>
+     <p>What is the Corvette shown below?</p>
+     <img width="50%" src="blackzr1.jpg" /><br><br>
+     <form>
+      <div id="response"></div>
+       <input type="radio" name="trivia" value="no"> 2020 Stingray
+         <br>
+       <input type="radio" name="trivia" value="no"> 2019 Stingray
+         <br>
+       <input type="radio" name="trivia" value="yes"> 2019 ZR1
+        <br>
+       <input type="radio" name="trivia" value="no"> 2019 Z06
+        <br><br>
+       <input onclick="answer()" id="submit" type="button" value="Submit Answer">
+     </form>
+   </div></div>
+
+   <div class="clearfloat"></div>
+
+   <br />
+
+
+
+   <div class="standard">
+   <p class="normal"><i>Here is an informational video on superchargers and turbochargers:<i></p><br />
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/F-Iugo2lqvk?start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support HTML 5 video</iframe><br />
+   </div>
+   <br />
+   <hr />
+   <br />
+   <center><i>Micah Ruth </i><a id="website" href="file:///Users/scottandbekah/Desktop/Coding%20'22/reference.html"> Website</a></center>
+   <br />
+   <footer id="footer"><i>Micah Ruth created this website</i></footer>
+  </body>
+</html>
